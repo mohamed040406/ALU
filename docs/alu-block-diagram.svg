@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="876" viewBox="0 0 1160 876" role="img" aria-labelledby="title desc">
+<title id="title">Registered 4-bit ALU</title><desc id="desc">All inputs and output-bank flip-flops share clock and asynchronous reset. Distinct named nets connect input registers, arithmetic and logic units, the 2:1 result mux, status gates and output registers.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#303741"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#20252a}.title{font-size:30px;font-weight:700}.subtitle{font-size:16px;fill:#444b51}.head{font-size:19px;font-weight:700}.module{font-size:16px;font-weight:700}.label{font-size:15px}.note{font-size:13.5px;fill:#41484e}.net{font-family:Consolas,monospace;font-size:15px}.pin{font-family:Consolas,monospace;font-size:13px}.box,.reg{fill:white;stroke:#41484e;stroke-width:1.5}.reg{fill:#e9edf0}.scope{fill:#f7f8f9;stroke:#a6aeb4;stroke-width:1}.wire,.ctrl{fill:none;stroke:#303741;stroke-width:1.6;stroke-linejoin:round}.ctrl{stroke-dasharray:6 4}</style>
+<rect width="1160" height="876" fill="white"/>
+<text x="32" y="43" class="title" text-anchor="start">Registered ALU datapath</text>
+<text x="32" y="71" class="subtitle" text-anchor="start">Fixed 4-bit operands, 8-bit result, and two status flags</text>
+<text x="32" y="116" class="head" text-anchor="start">Input registers</text>
+<text x="206" y="116" class="note" text-anchor="start">Capture at rising edge N. A low rst_n clears every register asynchronously.</text>
+<text x="32" y="173" class="net" text-anchor="start">a[3:0]</text>
+<path d="M109 168 h32" class="wire" marker-end="url(#arr)"/>
+<rect x="141" y="139" width="133" height="58" rx="3" class="reg"/>
+<text x="207.5" y="166" class="module" text-anchor="middle">alu_register</text>
+<text x="207.5" y="187" class="note" text-anchor="middle">4-bit D → Q</text>
+<path d="M274 168 h25" class="wire" marker-end="url(#arr)"/>
+<text x="305" y="173" class="net" text-anchor="start">a_q[3:0]</text>
+<text x="407" y="173" class="net" text-anchor="start">b[3:0]</text>
+<path d="M484 168 h32" class="wire" marker-end="url(#arr)"/>
+<rect x="516" y="139" width="133" height="58" rx="3" class="reg"/>
+<text x="582.5" y="166" class="module" text-anchor="middle">alu_register</text>
+<text x="582.5" y="187" class="note" text-anchor="middle">4-bit D → Q</text>
+<path d="M649 168 h25" class="wire" marker-end="url(#arr)"/>
+<text x="680" y="173" class="net" text-anchor="start">b_q[3:0]</text>
+<text x="782" y="173" class="net" text-anchor="start">sel[3:0]</text>
+<path d="M859 168 h32" class="wire" marker-end="url(#arr)"/>
+<rect x="891" y="139" width="133" height="58" rx="3" class="reg"/>
+<text x="957.5" y="166" class="module" text-anchor="middle">alu_register</text>
+<text x="957.5" y="187" class="note" text-anchor="middle">4-bit D → Q</text>
+<path d="M1024 168 h25" class="wire" marker-end="url(#arr)"/>
+<text x="1055" y="173" class="net" text-anchor="start">sel_q[3:0]</text>
+<text class="pin" x="32" y="215">clk</text>
+<text class="pin" x="32" y="234">rst_n</text>
+<path class="ctrl" d="M80 212 H937"/>
+<path class="ctrl" d="M80 231 H959"/>
+<path class="ctrl" d="M187 212 V197" marker-end="url(#arr)"/>
+<circle cx="187" cy="212" r="3" fill="#303741"/>
+<path class="ctrl" d="M209 231 V197" marker-end="url(#arr)"/>
+<circle cx="209" cy="231" r="3" fill="#303741"/>
+<path class="ctrl" d="M562 212 V197" marker-end="url(#arr)"/>
+<circle cx="562" cy="212" r="3" fill="#303741"/>
+<path class="ctrl" d="M584 231 V197" marker-end="url(#arr)"/>
+<circle cx="584" cy="231" r="3" fill="#303741"/>
+<path class="ctrl" d="M937 212 V197" marker-end="url(#arr)"/>
+<path class="ctrl" d="M959 231 V197" marker-end="url(#arr)"/>
+<g transform="translate(0 29)">
+<rect x="30" y="250" width="1100" height="353" rx="3" class="scope"/>
+<text x="54" y="283" class="head" text-anchor="start">alu_core</text>
+<text x="148" y="283" class="note" text-anchor="start">Combinational</text>
+<rect x="226" y="320" width="236" height="95" rx="3" class="box"/>
+<text x="344" y="365.5" class="module" text-anchor="middle">alu_arithmetic_unit</text>
+<text x="344" y="386.5" class="note" text-anchor="middle">8-bit arithmetic result + 2 flags</text>
+<text x="120" y="347" class="net" text-anchor="end">a_q[3:0]</text>
+<path d="M125 342 H226" class="wire" marker-end="url(#arr)"/>
+<text x="120" y="372" class="net" text-anchor="end">b_q[3:0]</text>
+<path d="M125 367 H226" class="wire" marker-end="url(#arr)"/>
+<text x="120" y="397" class="net" text-anchor="end">op[2:0]</text>
+<path d="M125 392 H226" class="ctrl" marker-end="url(#arr)"/>
+<rect x="226" y="466" width="236" height="95" rx="3" class="box"/>
+<text x="344" y="511.5" class="module" text-anchor="middle">alu_logic_unit</text>
+<text x="344" y="532.5" class="note" text-anchor="middle">8-bit zero-extended logic result</text>
+<path d="M141 342 V488 H226" class="wire" marker-end="url(#arr)"/>
+<circle cx="141" cy="342" r="3.4" fill="#303741"/>
+<path d="M165 367 V513 H226" class="wire" marker-end="url(#arr)"/>
+<circle cx="165" cy="367" r="3.4" fill="#303741"/>
+<path d="M190 392 V538 H226" class="ctrl" marker-end="url(#arr)"/>
+<circle cx="190" cy="392" r="3.4" fill="#303741"/>
+<!-- <rect x="713" y="309" width="147" height="57" rx="3" class="box"/> -->
+<!-- <text x="786.5" y="335.5" class="module" text-anchor="middle">Flag gating</text>
+<text x="786.5" y="356.5" class="note" text-anchor="middle">mode = 1 clears both</text>
+<text x="786" y="272" class="net" text-anchor="middle">mode</text> -->
+<path d="M462 338 H713" class="wire" marker-end="url(#arr)"/>
+<text x="566" y="326" class="note" text-anchor="middle">2 arithmetic flags</text>
+<text x="720" y="340" class="pin" text-anchor="start">{invalid, div_zero}</text>
+<path d="M462 391 H607 V434 H713" class="wire" marker-end="url(#arr)"/>
+<text x="500" y="380" class="net" text-anchor="start">arith_y[7:0]</text>
+<path d="M462 514 H668 V492 H713" class="wire" marker-end="url(#arr)"/>
+<text x="500" y="503" class="net" text-anchor="start">logic_y[7:0]</text>
+<rect x="713" y="405" width="147" height="121" rx="3" class="box"/>
+<text x="727" y="439" class="pin" text-anchor="start">d0</text>
+<text x="727" y="497" class="pin" text-anchor="start">d1</text>
+<text x="797" y="459" class="module" text-anchor="middle">alu_mux2</text>
+<text x="797" y="479" class="note" text-anchor="middle">8-bit 2:1 mux</text>
+<text x="786" y="584" class="net" text-anchor="middle">mode</text>
+<path d="M786 565 V526" class="ctrl" marker-end="url(#arr)"/>
+<path d="M860 462 H915" class="wire" marker-end="url(#arr)"/>
+<text x="925" y="467" class="net" text-anchor="start">y_comb[7:0]</text>
+<text x="32" y="651" class="head" text-anchor="start">Output register bank</text>
+<text x="238" y="651" class="note" text-anchor="start">Capture at rising edge N+1.</text>
+<text x="32" y="687" class="net" text-anchor="start">y_comb[3:0]</text>
+<path d="M54 697 v20" class="wire" marker-end="url(#arr)"/>
+<rect x="32" y="717" width="151" height="62" rx="3" class="reg"/>
+<text x="107.5" y="746" class="module" text-anchor="middle">alu_register</text>
+<text x="107.5" y="767" class="note" text-anchor="middle">low nibble</text>
+<path d="M183 748 h23" class="wire" marker-end="url(#arr)"/>
+<text x="217" y="753" class="net" text-anchor="start">y[3:0]</text>
+<text x="407" y="687" class="net" text-anchor="start">y_comb[7:4]</text>
+<path d="M429 697 v20" class="wire" marker-end="url(#arr)"/>
+<rect x="407" y="717" width="151" height="62" rx="3" class="reg"/>
+<text x="482.5" y="746" class="module" text-anchor="middle">alu_register</text>
+<text x="482.5" y="767" class="note" text-anchor="middle">high nibble</text>
+<path d="M558 748 h23" class="wire" marker-end="url(#arr)"/>
+<text x="592" y="753" class="net" text-anchor="start">y[7:4]</text>
+<text x="782" y="687" class="net" text-anchor="start">flags_comb[1:0]</text>
+<path d="M804 697 v20" class="wire" marker-end="url(#arr)"/>
+<rect x="782" y="717" width="151" height="62" rx="3" class="reg"/>
+<text x="857.5" y="746" class="module" text-anchor="middle">2 flag flip-flops</text>
+<text x="857.5" y="767" class="note" text-anchor="middle">Q[1], Q[0]</text>
+<path d="M933 740 h23" class="wire" marker-end="url(#arr)"/>
+<path d="M933 761 h23" class="wire" marker-end="url(#arr)"/>
+<text x="966" y="745" class="net" text-anchor="start">invalid_op</text>
+<text x="966" y="766" class="net" text-anchor="start">divide_by_zero</text>
+<text class="pin" x="32" y="803">clk</text>
+<text class="pin" x="32" y="823">rst_n</text>
+<path class="ctrl" d="M80 800 H881"/>
+<path class="ctrl" d="M80 820 H903"/>
+<path class="ctrl" d="M131 800 V779" marker-end="url(#arr)"/>
+<circle cx="131" cy="800" r="3" fill="#303741"/>
+<path class="ctrl" d="M153 820 V779" marker-end="url(#arr)"/>
+<circle cx="153" cy="820" r="3" fill="#303741"/>
+<path class="ctrl" d="M506 800 V779" marker-end="url(#arr)"/>
+<circle cx="506" cy="800" r="3" fill="#303741"/>
+<path class="ctrl" d="M528 820 V779" marker-end="url(#arr)"/>
+<circle cx="528" cy="820" r="3" fill="#303741"/>
+<path class="ctrl" d="M881 800 V779" marker-end="url(#arr)"/>
+<path class="ctrl" d="M903 820 V779" marker-end="url(#arr)"/>
+</g>
+</svg>

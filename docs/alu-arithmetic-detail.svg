@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="1034" viewBox="0 0 1160 1034" role="img" aria-labelledby="title desc">
+<title id="title">Arithmetic-unit connections</title><desc id="desc">One four-bit ripple adder handles increment, addition and subtraction. Its sum and carry also feed local borrow correction. Product, quotient, transfer, decrement and reserved zero feed the result selector. Separate flag logic qualifies divide-by-zero and reserved operation. Four full-adder stages are shown with their carry, operand and sum wires.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#303741"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#20252a}.title{font-size:30px;font-weight:700}.subtitle{font-size:16px;fill:#444b51}.head{font-size:19px;font-weight:700}.module{font-size:16px;font-weight:700}.label{font-size:15px}.note{font-size:13.5px;fill:#41484e}.net{font-family:Consolas,monospace;font-size:15px}.pin{font-family:Consolas,monospace;font-size:13px}.box,.reg{fill:white;stroke:#41484e;stroke-width:1.5}.reg{fill:#e9edf0}.scope{fill:#f7f8f9;stroke:#a6aeb4;stroke-width:1}.wire,.ctrl{fill:none;stroke:#303741;stroke-width:1.6;stroke-linejoin:round}.ctrl{stroke-dasharray:6 4}</style>
+<rect width="1160" height="1034" fill="white"/>
+<text x="32" y="43" class="title" text-anchor="start">Arithmetic unit</text>
+<text x="32" y="71" class="subtitle" text-anchor="start">alu_arithmetic_unit   /   op[2:0] selects the result and both flags</text>
+<rect x="30" y="100" width="1100" height="515" rx="3" class="scope"/>
+<text x="50" y="131" class="head" text-anchor="start">Combinational datapath</text>
+<text x="50" y="157" class="note" text-anchor="start">a and b are the registered 4-bit operands. Each selector uses the same 3-bit op.</text>
+<rect x="106" y="192" width="190" height="78" rx="3" class="box"/>
+<text x="201" y="229" class="module" text-anchor="middle">Adder input select</text>
+<text x="201" y="250" class="note" text-anchor="middle">op → x[3:0], z[3:0], cin</text>
+<text x="48" y="225" class="net" text-anchor="start">a, b</text>
+<path d="M82 221 H106" class="wire" marker-end="url(#arr)"/>
+<text x="201" y="181" class="net" text-anchor="middle">op</text>
+<path d="M201 183 V192" class="ctrl" marker-end="url(#arr)"/>
+<rect x="367" y="190" width="196" height="76" rx="3" class="box"/>
+<text x="465" y="226" class="module" text-anchor="middle">alu_ripple_adder</text>
+<text x="465" y="247" class="note" text-anchor="middle">4 × alu_full_adder</text>
+<path d="M296 229 H367" class="wire" marker-end="url(#arr)"/>
+<text x="332" y="216" class="pin" text-anchor="middle">x,z,cin</text>
+<path d="M563 215 H875" class="wire" marker-end="url(#arr)"/>
+<text x="694" y="203" class="net" text-anchor="middle">{cout, sum[3:0]}</text>
+<rect x="636" y="242" width="180" height="64" rx="3" class="box"/>
+<text x="726" y="272" class="module" text-anchor="middle">Borrow correction</text>
+<text x="726" y="293" class="note" text-anchor="middle">cout ? sum : −sum</text>
+<path d="M563 215 H588 V274 H636" class="wire" marker-end="url(#arr)"/>
+<circle cx="588" cy="215" r="3.4" fill="#303741"/>
+<path d="M816 274 H875" class="wire" marker-end="url(#arr)"/>
+<text x="254" y="338" class="net" text-anchor="start">a, b</text>
+<path d="M300 333 H367" class="wire" marker-end="url(#arr)"/>
+<rect x="367" y="308" width="196" height="54" rx="3" class="box"/>
+<text x="465" y="333" class="module" text-anchor="middle">alu_multiplier</text>
+<text x="465" y="354" class="note" text-anchor="middle">4-bit × 4-bit</text>
+<path d="M563 333 H875" class="wire" marker-end="url(#arr)"/>
+<text x="686" y="325" class="net" text-anchor="middle">product[7:0]</text>
+<text x="254" y="413" class="net" text-anchor="start">b, a</text>
+<path d="M300 408 H367" class="wire" marker-end="url(#arr)"/>
+<rect x="367" y="383" width="196" height="54" rx="3" class="box"/>
+<text x="465" y="408" class="module" text-anchor="middle">alu_divider</text>
+<text x="465" y="429" class="note" text-anchor="middle">dividend = b, divisor = a</text>
+<path d="M563 408 H875" class="wire" marker-end="url(#arr)"/>
+<text x="686" y="400" class="net" text-anchor="middle">quotient[3:0]</text>
+<text x="254" y="491" class="net" text-anchor="start">a</text>
+<path d="M300 486 H367" class="wire" marker-end="url(#arr)"/>
+<rect x="367" y="461" width="196" height="54" rx="3" class="box"/>
+<text x="465" y="486" class="module" text-anchor="middle">Transfer</text>
+<text x="465" y="507" class="note" text-anchor="middle">4-bit operand</text>
+<path d="M563 486 H875" class="wire" marker-end="url(#arr)"/>
+<text x="686" y="478" class="net" text-anchor="middle">a[3:0]</text>
+<text x="254" y="550" class="net" text-anchor="start">a</text>
+<path d="M300 545 H367" class="wire" marker-end="url(#arr)"/>
+<rect x="367" y="520" width="196" height="54" rx="3" class="box"/>
+<text x="465" y="545" class="module" text-anchor="middle">Decrement</text>
+<text x="465" y="566" class="note" text-anchor="middle">(a − 1) mod 16</text>
+<path d="M563 545 H875" class="wire" marker-end="url(#arr)"/>
+<text x="686" y="537" class="net" text-anchor="middle">dec_a[3:0]</text>
+<path d="M563 427 H610" class="wire" marker-end="url(#arr)"/>
+<text x="622" y="434" class="net" text-anchor="start">div_zero</text>
+<text x="685" y="588" class="net" text-anchor="start">constant 0</text>
+<path d="M790 583 H875" class="wire" marker-end="url(#arr)"/>
+<rect x="875" y="180" width="196" height="420" rx="3" class="box"/>
+<text x="973" y="162" class="net" text-anchor="middle">op[2:0]</text>
+<path d="M973 171 V180" class="ctrl" marker-end="url(#arr)"/>
+<text x="885" y="220" class="pin" text-anchor="start">001, 010   INC / ADD</text>
+<text x="885" y="279" class="pin" text-anchor="start">011   |a − b|</text>
+<text x="885" y="338" class="pin" text-anchor="start">100   product</text>
+<text x="885" y="413" class="pin" text-anchor="start">101   quotient</text>
+<text x="885" y="491" class="pin" text-anchor="start">000   transfer</text>
+<text x="885" y="550" class="pin" text-anchor="start">111   decrement</text>
+<text x="885" y="588" class="pin" text-anchor="start">110   reserved = 0</text>
+<text x="972" y="368" class="module" text-anchor="middle">Result select</text>
+<text x="972" y="386" class="note" text-anchor="middle">zero-extend to 8 bits</text>
+<path d="M1071 375 H1099 V625 H935" class="wire" marker-end="url(#arr)"/>
+<text x="925" y="631" class="net" text-anchor="end">arith_y[7:0]</text>
+<text x="50" y="670" class="head" text-anchor="start">Status outputs</text>
+<text x="50" y="721" class="net" text-anchor="start">op[2:0], div_zero</text>
+<path d="M252 716 H282" class="wire" marker-end="url(#arr)"/>
+<rect x="282" y="680" width="325" height="80" rx="3" class="box"/>
+<text x="444.5" y="718" class="module" text-anchor="middle">Arithmetic flag logic</text>
+<text x="444.5" y="739" class="note" text-anchor="middle">div_zero is the divider’s zero-divisor flag</text>
+<path d="M607 698 H683" class="wire" marker-end="url(#arr)"/>
+<text x="695" y="703" class="net" text-anchor="start">divide_by_zero = (op == 101) AND div_zero</text>
+<path d="M607 742 H683" class="wire" marker-end="url(#arr)"/>
+<text x="695" y="747" class="net" text-anchor="start">invalid_op = (op == 110)   [provisional]</text>
+<rect x="30" y="793" width="1100" height="218" rx="3" class="scope"/>
+<text x="50" y="826" class="head" text-anchor="start">Inside alu_ripple_adder</text>
+<text x="285" y="826" class="note" text-anchor="start">The carry runs from the least significant bit to the most significant bit.</text>
+<text x="55" y="914" class="net" text-anchor="start">cin</text>
+<path d="M95 909 H144" class="wire" marker-end="url(#arr)"/>
+<rect x="144" y="882" width="154" height="54" rx="3" class="box"/>
+<text x="221" y="907" class="module" text-anchor="middle">alu_full_adder</text>
+<text x="221" y="928" class="note" text-anchor="middle">bit 0</text>
+<text x="221" y="853" class="net" text-anchor="middle">x[0], z[0]</text>
+<path d="M221 862 V882" class="wire" marker-end="url(#arr)"/>
+<path d="M221 936 V959" class="wire" marker-end="url(#arr)"/>
+<text x="221" y="980" class="net" text-anchor="middle">sum[0]</text>
+<path d="M298 909 H384" class="wire" marker-end="url(#arr)"/>
+<text x="341" y="898" class="pin" text-anchor="middle">c1</text>
+<rect x="384" y="882" width="154" height="54" rx="3" class="box"/>
+<text x="461" y="907" class="module" text-anchor="middle">alu_full_adder</text>
+<text x="461" y="928" class="note" text-anchor="middle">bit 1</text>
+<text x="461" y="853" class="net" text-anchor="middle">x[1], z[1]</text>
+<path d="M461 862 V882" class="wire" marker-end="url(#arr)"/>
+<path d="M461 936 V959" class="wire" marker-end="url(#arr)"/>
+<text x="461" y="980" class="net" text-anchor="middle">sum[1]</text>
+<path d="M538 909 H624" class="wire" marker-end="url(#arr)"/>
+<text x="581" y="898" class="pin" text-anchor="middle">c2</text>
+<rect x="624" y="882" width="154" height="54" rx="3" class="box"/>
+<text x="701" y="907" class="module" text-anchor="middle">alu_full_adder</text>
+<text x="701" y="928" class="note" text-anchor="middle">bit 2</text>
+<text x="701" y="853" class="net" text-anchor="middle">x[2], z[2]</text>
+<path d="M701 862 V882" class="wire" marker-end="url(#arr)"/>
+<path d="M701 936 V959" class="wire" marker-end="url(#arr)"/>
+<text x="701" y="980" class="net" text-anchor="middle">sum[2]</text>
+<path d="M778 909 H864" class="wire" marker-end="url(#arr)"/>
+<text x="821" y="898" class="pin" text-anchor="middle">c3</text>
+<rect x="864" y="882" width="154" height="54" rx="3" class="box"/>
+<text x="941" y="907" class="module" text-anchor="middle">alu_full_adder</text>
+<text x="941" y="928" class="note" text-anchor="middle">bit 3</text>
+<text x="941" y="853" class="net" text-anchor="middle">x[3], z[3]</text>
+<path d="M941 862 V882" class="wire" marker-end="url(#arr)"/>
+<path d="M941 936 V959" class="wire" marker-end="url(#arr)"/>
+<text x="941" y="980" class="net" text-anchor="middle">sum[3]</text>
+<path d="M1018 909 h30" class="wire" marker-end="url(#arr)"/>
+<text x="1059" y="914" class="net" text-anchor="start">cout</text>
+</svg>

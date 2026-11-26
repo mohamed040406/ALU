@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="710" viewBox="0 0 1160 710" role="img" aria-labelledby="title desc">
+<title id="title">Logic-unit connections</title><desc id="desc">The registered operand buses fan out to eight four-bit logic functions, including a local two’s-complement circuit on b. Each function drives the indicated input of the binary result selector. The selected four-bit result is zero-extended to eight bits.</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#303741"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#20252a}.title{font-size:30px;font-weight:700}.subtitle{font-size:16px;fill:#444b51}.head{font-size:19px;font-weight:700}.module{font-size:16px;font-weight:700}.label{font-size:15px}.note{font-size:13.5px;fill:#41484e}.net{font-family:Consolas,monospace;font-size:15px}.pin{font-family:Consolas,monospace;font-size:13px}.box,.reg{fill:white;stroke:#41484e;stroke-width:1.5}.reg{fill:#e9edf0}.scope{fill:#f7f8f9;stroke:#a6aeb4;stroke-width:1}.wire,.ctrl{fill:none;stroke:#303741;stroke-width:1.6;stroke-linejoin:round}.ctrl{stroke-dasharray:6 4}</style>
+<rect width="1160" height="710" fill="white"/>
+<text x="32" y="43" class="title" text-anchor="start">Logic unit</text>
+<text x="32" y="71" class="subtitle" text-anchor="start">alu_logic_unit   /   Every operation is four bits wide. The selected result is zero-extended to eight bits.</text>
+<text x="95" y="117" class="net" text-anchor="middle">a[3:0]</text>
+<text x="178" y="117" class="net" text-anchor="middle">b[3:0]</text>
+<path d="M95 129 V610" class="wire"/>
+<path d="M178 129 V626" class="wire"/>
+<rect x="651" y="146" width="159" height="500" rx="3" class="box"/>
+<path d="M95 170 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="170" r="3.4" fill="#303741"/>
+<rect x="275" y="146" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="168" class="module" text-anchor="middle">One’s complement</text>
+<text x="386" y="189" class="note" text-anchor="middle">~a</text>
+<path d="M497 170 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="175" class="pin" text-anchor="start">000</text>
+<path d="M178 234 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="234" r="3.4" fill="#303741"/>
+<rect x="275" y="210" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="232" class="module" text-anchor="middle">Two’s complement</text>
+<text x="386" y="253" class="note" text-anchor="middle">−b mod 16</text>
+<path d="M497 234 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="239" class="pin" text-anchor="start">001</text>
+<path d="M95 290 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="290" r="3.4" fill="#303741"/>
+<path d="M178 306 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="306" r="3.4" fill="#303741"/>
+<rect x="275" y="274" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="296" class="module" text-anchor="middle">AND</text>
+<text x="386" y="317" class="note" text-anchor="middle">a AND b</text>
+<path d="M497 298 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="303" class="pin" text-anchor="start">010</text>
+<path d="M95 354 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="354" r="3.4" fill="#303741"/>
+<path d="M178 370 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="370" r="3.4" fill="#303741"/>
+<rect x="275" y="338" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="360" class="module" text-anchor="middle">XOR</text>
+<text x="386" y="381" class="note" text-anchor="middle">a XOR b</text>
+<path d="M497 362 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="367" class="pin" text-anchor="start">011</text>
+<path d="M95 418 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="418" r="3.4" fill="#303741"/>
+<path d="M178 434 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="434" r="3.4" fill="#303741"/>
+<rect x="275" y="402" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="424" class="module" text-anchor="middle">NAND</text>
+<text x="386" y="445" class="note" text-anchor="middle">~(a AND b)</text>
+<path d="M497 426 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="431" class="pin" text-anchor="start">100</text>
+<path d="M95 482 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="482" r="3.4" fill="#303741"/>
+<path d="M178 498 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="498" r="3.4" fill="#303741"/>
+<rect x="275" y="466" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="488" class="module" text-anchor="middle">XNOR</text>
+<text x="386" y="509" class="note" text-anchor="middle">~(a XOR b)</text>
+<path d="M497 490 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="495" class="pin" text-anchor="start">101</text>
+<path d="M95 546 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="546" r="3.4" fill="#303741"/>
+<path d="M178 562 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="562" r="3.4" fill="#303741"/>
+<rect x="275" y="530" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="552" class="module" text-anchor="middle">NOR</text>
+<text x="386" y="573" class="note" text-anchor="middle">~(a OR b)</text>
+<path d="M497 554 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="559" class="pin" text-anchor="start">110</text>
+<path d="M95 610 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="95" cy="610" r="3.4" fill="#303741"/>
+<path d="M178 626 H275" class="wire" marker-end="url(#arr)"/>
+<circle cx="178" cy="626" r="3.4" fill="#303741"/>
+<rect x="275" y="594" width="222" height="48" rx="3" class="box"/>
+<text x="386" y="616" class="module" text-anchor="middle">OR</text>
+<text x="386" y="637" class="note" text-anchor="middle">a OR b</text>
+<path d="M497 618 H651" class="wire" marker-end="url(#arr)"/>
+<text x="663" y="623" class="pin" text-anchor="start">111</text>
+<text x="755" y="369" class="head" text-anchor="middle">8:1</text>
+<text x="754" y="391" class="label" text-anchor="middle">logic select</text>
+<text x="754" y="412" class="pin" text-anchor="middle">case (op)</text>
+<text x="734" y="112" class="net" text-anchor="middle">op[2:0]</text>
+<path d="M734 120 V146" class="ctrl" marker-end="url(#arr)"/>
+<path d="M810 395 H881" class="wire" marker-end="url(#arr)"/>
+<text x="846" y="383" class="pin" text-anchor="middle">4 bits</text>
+<rect x="881" y="360" width="143" height="70" rx="3" class="box"/>
+<text x="952.5" y="393" class="module" text-anchor="middle">Zero-extend</text>
+<text x="952.5" y="414" class="note" text-anchor="middle">upper nibble = 0</text>
+<path d="M1024 395 H1062" class="wire" marker-end="url(#arr)"/>
+<text x="1071" y="400" class="net" text-anchor="start">y[7:0]</text>
+<text x="32" y="687" class="note" text-anchor="start">Dots mark connected branches. Crossings without a dot are electrically separate.</text>
+</svg>
